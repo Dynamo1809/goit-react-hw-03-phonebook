@@ -1,0 +1,32 @@
+@import 'styles/shared.scss';
+
+.Contacts__item {
+  max-width: 310px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid $indigo;
+  border-radius: 4px;
+  &:not(:last-child) {
+    margin-bottom: 5px;
+  }
+}
+
+.Contacts__text {
+  word-wrap: break-word;
+  // width: auto;
+  // max-width: 100%;
+  max-width: 220px;
+  margin-left: 5px;
+}
+
+.Contacts__button {
+  @extend %button;
+  margin-right: 5px;
+}
+
+@keyframes slidebg {
+  to {
+    background-position: 20vw;
+  }
+}

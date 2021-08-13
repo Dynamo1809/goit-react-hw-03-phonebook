@@ -1,0 +1,11 @@
+@import 'styles/shared.scss';
+
+.Filter__label {
+  display: inline-block;
+  font-weight: 500;
+  color: $indigo;
+}
+
+.Filter__input {
+  @extend %input;
+}
