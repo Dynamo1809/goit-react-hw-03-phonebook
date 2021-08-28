@@ -1,5 +1,7 @@
 import Contact from 'components/Contact';
 import './ContactList.scss';
+import PropTypes from 'prop-types';
+
 
 const ContactList = ({ filteredContacts, onDelete }) => {
   const filtered = filteredContacts();
@@ -15,3 +17,7 @@ const ContactList = ({ filteredContacts, onDelete }) => {
 };
 
 export default ContactList;
+
+ContactList.propTypes = {
+  filteredContacts: PropTypes.func.isRequired,
+};

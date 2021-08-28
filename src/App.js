@@ -3,7 +3,7 @@ import { Component } from 'react';
 import { ContactForm }  from 'components/ContactForm';
 import Filter from 'components/Filter';
 import ContactList from 'components/ContactList';
-// import Contact from 'components/Contact';
+import PropTypes from 'prop-types';
 
 import { v4 as uuidv4 } from 'uuid'; 
 
@@ -33,7 +33,7 @@ export class App extends Component {
     if (contacts !== prevState.contacts) {
       localStorage.setItem('contacts', JSON.stringify(contacts));
     }
-  }
+  };
 
   addContact = ( newName, number) => {
     const { contacts } = this.state;
@@ -56,7 +56,7 @@ export class App extends Component {
     this.setState( prevState => ({
       contacts: prevState.contacts.filter( ({ id }) => id !== contactId)
     }))
-  }
+  };
 
   handleChange = (e) => {
     const { name, value, } = e.currentTarget;  
@@ -74,11 +74,16 @@ export class App extends Component {
     return (      
       <div className="App">
         <h1 className="Phonebook-title">Phonebook</h1>
-        <ContactForm addContact={this.addContact} />
+        <ContactForm addContact={ this.addContact } />
         <h2>Contacts</h2>
-        <Filter onChange={this.handleChange} filter={filter}/>
-        <ContactList onDelete={this.deleteContact} filteredContacts={this.getVisibleContacts}/>
+        <Filter onChange={ this.handleChange } filter={ filter } />
+        <ContactList onDelete={ this.deleteContact } filteredContacts={ this.getVisibleContacts } />
       </div>
     )
   };
+};
+
+App.propTypes = {
+  contacts: PropTypes.arrayOf(PropTypes.shape()),
+  filter: PropTypes.string,
 };
